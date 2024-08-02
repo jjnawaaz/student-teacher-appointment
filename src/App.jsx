@@ -1,16 +1,23 @@
-import { useState } from "react";
-
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-import AddTeacher from "./components/AddTeacher";
+import AdminDashboard from "./pages/AdminDashboard";
+import TeacherDashboard from "./pages/TeacherDashboard";
+import StudentDashboard from "./pages/StudentDashboard";
+import HomePage from "./pages/HomePage";
+import SignUp from "./components/SignUp";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
-      <h1>Student- Teacher Booking Appointment</h1>
-      <AddTeacher />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/teacher" element={<TeacherDashboard />} />
+        <Route path="/student" element={<StudentDashboard />} />
+      </Routes>
+    </Router>
   );
 }
 

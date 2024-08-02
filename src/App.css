@@ -2,48 +2,98 @@
   margin: 0;
   padding: 0;
 }
+/* Home Page Styling  */
+.homepage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /*HomePage Css is Common to both signup and home page components */
+  background-color: red;
+  height: 100vh;
+}
+.form {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  width: 20%;
+  background-color: blue;
+  color: white;
+}
+.form-button {
+  margin-top: 25%;
+  width: 10%;
+  height: 5%;
+  border-radius: 20px;
+  font-size: medium;
+}
+
+/* SignUp Page Styling  */
+.signup-form {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  width: 40%;
+  background-color: blue;
+  color: white;
+}
+
+.signup-form-button {
+  margin-top: 25%;
+  width: 10%;
+  height: 5%;
+  border-radius: 20px;
+  font-size: medium;
+}
+
+/* Admin Page CSS  */
+
+.admin {
+  display: flex;
+  height: 100vh;
+  background-color: blueviolet;
+}
+
+.admin-sidebar {
+  background-color: aqua;
+  width: 15%;
+}
+
+.admin-content {
+  background-color: beige;
+  width: 85%;
+}
+
+.admin-nav {
+  background-color: black;
+  height: 5%;
+}
 
 .teacher {
   display: flex;
-  margin-top: 50px;
-  flex-direction: column;
-  align-items: center;
   height: 100vh;
+  background-color: blueviolet;
 }
 
-.teacher-form {
+.teacher-sidebar {
+  background-color: aqua;
+  width: 15%;
+}
+
+.teacher-content {
+  background-color: beige;
+  width: 85%;
+}
+
+.student {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  height: 100vh;
+  background-color: blueviolet;
 }
 
-.t-inputs {
-  padding: 10px;
-  margin-bottom: 10px;
-  width: 300px;
+.student-sidebar {
+  background-color: aqua;
+  width: 15%;
 }
 
-.t-inputs-button {
-  width: 70px;
-  padding: 10px;
-  border-radius: 20px;
-  border: none;
-  align-self: center;
-}
-
-.error-text {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-.error-label {
-  display: flex;
-  align-items: center;
-}
-
-.error-label p {
-  margin: 0;
-  text-align: center;
-  margin-left: 10px;
+.student-content {
+  background-color: beige;
+  width: 85%;
 }
