@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AdminLogin from "../components/AdminLogin";
+import TeacherLogin from "../components/TeacherLogin";
+import StudentLogin from "../components/StudentLogin";
+import TeacherSignUp from "../components/TeacherSignUp";
+import StudentSignUp from "../components/StudentSignUp";
 
 const HomePage = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -13,19 +18,19 @@ const HomePage = () => {
     <div>
       {isLogin ? (
         <div className="homepage">
-          <div className="form">SignIn as Admin</div>
-          <div className="form">SignIn as Teacher</div>
-          <div className="form">SignIn as Student</div>
-          <button className="form-button" onClick={handleButtonClick}>
-            Already Have an Account? Login
+          <AdminLogin />
+          <TeacherLogin />
+          <StudentLogin />
+          <button className="home-button" onClick={handleButtonClick}>
+            SignUp?
           </button>
         </div>
       ) : (
         <div className="homepage">
-          <div className="form">Signup as Teacher</div>
-          <div className="form">Signup as Student</div>
-          <button className="form-button" onClick={handleButtonClick}>
-            Signup as newbie
+          <TeacherSignUp />
+          <StudentSignUp />
+          <button className="home-button" onClick={handleButtonClick}>
+            Already Have an Account? Login
           </button>
         </div>
       )}

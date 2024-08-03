@@ -3,7 +3,8 @@ import { db } from "../firebase.js";
 import { addDoc, collection } from "firebase/firestore";
 import { convertLowercase } from "../utils/lowerCase.js";
 
-const AddTeacher = () => {
+const AdminAddTeacher = () => {
+  const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [department, setDepartment] = useState("");
   const [subject, setSubject] = useState("");
@@ -13,6 +14,7 @@ const AddTeacher = () => {
     e.preventDefault();
 
     const newErrors = {};
+    if (!id) newErrors.name = "Id is required";
     if (!name) newErrors.name = "Name is required";
     if (!department) newErrors.department = "Department is required";
     if (!subject) newErrors.subject = "Subject is required";
@@ -23,6 +25,7 @@ const AddTeacher = () => {
     }
 
     const formData = {
+      id,
       name,
       department,
       subject,
@@ -31,6 +34,7 @@ const AddTeacher = () => {
     const lowerCaseData = convertLowercase(formData);
     try {
       await addDoc(collection(db, "teachers"), lowerCaseData);
+      setId("");
       setName("");
       setDepartment("");
       setSubject("");
@@ -45,6 +49,17 @@ const AddTeacher = () => {
       <h1>Add Teacher</h1>
       <form onSubmit={handleSubmit}>
         <div className="teacher-form">
+          <label>Id</label>
+
+          <div className="error-label">
+            <input
+              className="t-inputs"
+              type="text"
+              value={id}
+              onChange={(e) => setId(e.target.value)}
+            />
+            {errors.id && <p className="error-text">{errors.id}</p>}
+          </div>
           <label>Name</label>
 
           <div className="error-label">
@@ -88,4 +103,4 @@ const AddTeacher = () => {
   );
 };
 
-export default AddTeacher;
+export default AdminAddTeacher;
